@@ -13,7 +13,7 @@ import os
 
 from android.storage import app_storage_path
 from datetime import datetime
-
+import subprocess
 
 
 '''
@@ -165,6 +165,11 @@ class AudioTool(BoxLayout):
        
         print("time of recording finished")
         print(d)
+        
+        
+        input_file = 'testaudio.mp4'
+        output_file = 'output2.wav'
+        subprocess.run(['ffmpeg', '-i', input_file, '-acodec', 'pcm_s16le', '-ar', '44100', output_file])
         self.play()
         
         
@@ -175,7 +180,8 @@ class AudioTool(BoxLayout):
 
         self.sound = MediaPlayer()
         #self.sound.setDataSource(yourDataSource) #you can provide any data source, if its on the devie then the file path, or its url if you are playing online
-        self.sound.setDataSource('testaudio.mp4') 
+        #self.sound.setDataSource('testaudio.mp4') 
+        self.sound.setDataSource('output2.wav') 
         self.sound.prepare()
         self.sound.setLooping(False) #you can set it to true if you want to loop
         self.sound.start()
