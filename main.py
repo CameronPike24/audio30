@@ -148,7 +148,7 @@ class AudioTool(BoxLayout):
         #self.r.mRecorder.read(audio, 0, 500);
         
         #For future get max amplitude - use clock to call often
-        amplitude = mRecorder.getMaxAmplitude();
+        amplitude = self.r.mRecorder.getMaxAmplitude();
         print('amplitude')
         print(amplitude)
         
