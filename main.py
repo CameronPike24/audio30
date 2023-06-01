@@ -147,6 +147,11 @@ class AudioTool(BoxLayout):
         #self.r.mRecorder.read(new short[10000], 0, 10000); // have to include this to remove redundant values
         #self.r.mRecorder.read(audio, 0, 500);
         
+        #For future get max amplitude - use clock to call often
+        amplitude = mRecorder.getMaxAmplitude();
+        print('amplitude')
+        print(amplitude)
+        
         
     
     def stopRecording(self):
