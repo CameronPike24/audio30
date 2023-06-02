@@ -16,6 +16,7 @@ from datetime import datetime
 #import subprocess
 import ffmpeg
 import time
+from android import mActivity
 
 
 '''
@@ -190,6 +191,16 @@ class AudioTool(BoxLayout):
         os.system(command2wav)
         time.sleep(20)
         print("finished creating wav file")
+        
+
+
+       context = mActivity.getApplicationContext()
+       result =  context.getExternalFilesDir(None)   # don't forget the argument
+       if result:
+           storage_path =  str(result.toString())       
+           print("storage path")
+           print(storage_path)
+        
         
         self.play()
         
