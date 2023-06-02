@@ -194,12 +194,12 @@ class AudioTool(BoxLayout):
         
 
 
-       context = mActivity.getApplicationContext()
-       result =  context.getExternalFilesDir(None)   # don't forget the argument
-       if result:
-           storage_path =  str(result.toString())       
-           print("storage path")
-           print(storage_path)
+        context = mActivity.getApplicationContext()
+        result =  context.getExternalFilesDir(None)   # don't forget the argument
+        if result:
+            storage_path =  str(result.toString())       
+            print("storage path")
+            print(storage_path)
         
         
         self.play()
