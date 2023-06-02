@@ -218,7 +218,7 @@ class AudioTool(BoxLayout):
         self.sound = MediaPlayer()
         #self.sound.setDataSource(yourDataSource) #you can provide any data source, if its on the devie then the file path, or its url if you are playing online
         #self.sound.setDataSource('testaudio.mp4') 
-        self.audio_path = self.storage_path +'/'+'output2.wav'
+        self.audio_path = self.storage_path +'/'+'testaudio.mp4'
         self.sound.setDataSource(self.audio_path) 
         self.sound.prepare()
         self.sound.setLooping(False) #you can set it to true if you want to loop
