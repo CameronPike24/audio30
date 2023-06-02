@@ -14,7 +14,7 @@ import os
 from android.storage import app_storage_path
 from datetime import datetime
 #import subprocess
-#import ffmpeg
+import ffmpeg
 
 
 '''
@@ -185,6 +185,10 @@ class AudioTool(BoxLayout):
         #input_file = 'testaudio.mp4'
         #output_file = 'output2.wav'
         #subprocess.run(['ffmpeg', '-i', input_file, '-acodec', 'pcm_s16le', '-ar', '44100', output_file])
+        command2wav = "ffmpeg -i testaudio.mp4 output2.wav"
+        os.system(command2wav)
+        
+        
         self.play()
         
         
