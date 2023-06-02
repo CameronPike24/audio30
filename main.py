@@ -197,7 +197,7 @@ class AudioTool(BoxLayout):
         context = mActivity.getApplicationContext()
         result =  context.getExternalFilesDir(None)   # don't forget the argument
         if result:
-            storage_path =  str(result.toString())       
+            self.storage_path =  str(result.toString())       
             print("storage path")
             print(storage_path)
         
@@ -213,7 +213,8 @@ class AudioTool(BoxLayout):
         self.sound = MediaPlayer()
         #self.sound.setDataSource(yourDataSource) #you can provide any data source, if its on the devie then the file path, or its url if you are playing online
         #self.sound.setDataSource('testaudio.mp4') 
-        self.sound.setDataSource('output2.wav') 
+        self.audio_path = self.storage_path +'/'+'output2.wav'
+        self.sound.setDataSource(self.audio_path) 
         self.sound.prepare()
         self.sound.setLooping(False) #you can set it to true if you want to loop
         self.sound.start()
