@@ -13,8 +13,8 @@ import os
 
 from android.storage import app_storage_path
 from datetime import datetime
-import subprocess
-import ffmpeg
+#import subprocess
+#import ffmpeg
 
 
 '''
@@ -148,15 +148,23 @@ class AudioTool(BoxLayout):
         #self.r.mRecorder.read(audio, 0, 500);
         
         #For future get max amplitude - use clock to call often
+        #start recording and listen for max amplitude. When it occurs stop recording, dont save file
+        #have a max time of example 10 seconds if no large amplitude then stop and start again
+        #and start recording again for 1.5 seconds then stop, save file and check for match.
+        Clock.schedule_once(self.startGetMaxAmplitude,001) ## NEW start the recording 
+
+        
+    def startGetMaxAmplitude(self, dt):     
         amplitude = self.r.mRecorder.getMaxAmplitude();
         print('amplitude')
-        print(amplitude)
-        
-        
+        print(amplitude)    
+    
+       
     
     def stopRecording(self):
     
         Clock.unschedule(self.updateDisplay)
+        Clock.unschedule(self.startGetMaxAmplitude)
         self.r.mRecorder.stop() #NEW RECORDER VID 6
         self.r.mRecorder.release() #NEW RECORDER VID 6
         
@@ -173,9 +181,9 @@ class AudioTool(BoxLayout):
         print(d)
         
         
-        input_file = 'testaudio.mp4'
-        output_file = 'output2.wav'
-        subprocess.run(['ffmpeg', '-i', input_file, '-acodec', 'pcm_s16le', '-ar', '44100', output_file])
+        #input_file = 'testaudio.mp4'
+        #output_file = 'output2.wav'
+        #subprocess.run(['ffmpeg', '-i', input_file, '-acodec', 'pcm_s16le', '-ar', '44100', output_file])
         self.play()
         
         
