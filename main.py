@@ -17,7 +17,12 @@ from datetime import datetime
 import ffmpeg
 import time
 from android import mActivity
-
+'''
+import moviepy.editor as mp
+clip = mp.VideoFileClip('vid.mp4')
+audio = clip.audio
+audio.write_audiofile('audio.mp3')
+'''
 
 '''
 from datetime import datetime
@@ -199,7 +204,7 @@ class AudioTool(BoxLayout):
         if result:
             self.storage_path =  str(result.toString())       
             print("storage path")
-            print(storage_path)
+            print(self.storage_path)
         
         
         self.play()
