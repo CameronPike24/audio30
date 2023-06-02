@@ -151,7 +151,7 @@ class AudioTool(BoxLayout):
         #start recording and listen for max amplitude. When it occurs stop recording, dont save file
         #have a max time of example 10 seconds if no large amplitude then stop and start again
         #and start recording again for 1.5 seconds then stop, save file and check for match.
-        Clock.schedule_interval(self.startGetMaxAmplitude,001) ## NEW start the recording 
+        Clock.schedule_interval(self.startGetMaxAmplitude,0.001) ## NEW start the recording 
         
 
         
