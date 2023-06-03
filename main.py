@@ -228,8 +228,8 @@ class AudioTool(BoxLayout):
         #self.sound.setDataSource(yourDataSource) #you can provide any data source, if its on the devie then the file path, or its url if you are playing online
         #self.sound.setDataSource('testaudio.mp4') 
         #self.audio_path = self.storage_path + "/wav/output2.wav"
-        self.audio_path = self.storage_path + "/wav/output1.wav"
-        
+        #self.audio_path = self.storage_path + "/wav/output1.wav" ##cant find folder
+        self.audio_path = "wav/output1.wav"
         #self.audio_path = "wav/output2.wav"
      
         self.sound.setDataSource(self.audio_path) 
