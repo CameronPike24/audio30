@@ -17,6 +17,7 @@ from datetime import datetime
 import ffmpeg
 import time
 from android import mActivity
+from android.storage import primary_external_storage_path
 '''
 import moviepy.editor as mp
 clip = mp.VideoFileClip('vid.mp4')
@@ -107,6 +108,9 @@ class AudioApp(App):
         settings_path = app_storage_path()
         print("path")
         print(settings_path)
+        dirCheck = primary_external_storage_path()
+        print("external path")
+        print(dirCheck)
         
         #self.appdir = self.user_data_dir
         #print(self.appdir)
@@ -213,6 +217,8 @@ class AudioTool(BoxLayout):
         os.system(command2wav)
         time.sleep(10)
         print("finished creating wav file")
+        
+       
         
         
         
