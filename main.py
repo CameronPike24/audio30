@@ -235,7 +235,14 @@ class AudioTool(BoxLayout):
         #self.sound.setDataSource('testaudio.mp4') 
         #self.audio_path = self.storage_path + "/wav/output2.wav"
         #self.audio_path = self.storage_path + "/wav/output1.wav" ##cant find folder
-        self.audio_path = "wav/output1.wav"
+        
+        dirCheck1 = primary_external_storage_path()
+        print("external path1")
+        print(dirCheck1)        
+        
+        
+        
+        self.audio_path = dirCheck1 + "/wav/output1.wav"
         #self.audio_path = "wav/output2.wav"
      
         self.sound.setDataSource(self.audio_path) 
