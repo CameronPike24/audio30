@@ -242,7 +242,8 @@ class AudioTool(BoxLayout):
         
         
         
-        self.audio_path = dirCheck1 + "/wav/output1.wav"
+        #self.audio_path = dirCheck1 + "/wav/output1.wav"
+        self.audio_path = "/storage/emulated/0/org.example.c4k_tflite_audio1/wav/output1.wav"
         #self.audio_path = "wav/output2.wav"
      
         self.sound.setDataSource(self.audio_path) 
