@@ -200,11 +200,19 @@ class AudioTool(BoxLayout):
 
 
         context = mActivity.getApplicationContext()
-        result =  context.getExternalFilesDir(None)   # don't forget the argument
+        #result =  context.getExternalFilesDir(None)   # don't forget the argument
+        result =  context.getExternalCacheDir()
         if result:
             self.storage_path =  str(result.toString())       
             print("storage path")
             print(self.storage_path)
+ 
+ 
+ 
+    context = mActivity.getApplicationContext()
+    result =  context.getExternalCacheDir()
+    if result:
+        app_cache_directory_path =  str(result.toString()) 
         
         
         self.play()
