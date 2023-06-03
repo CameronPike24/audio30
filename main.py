@@ -80,6 +80,8 @@ class MyRecorder:
         #get_app = App.get_running_app()
         #self.user_dir = get_app.getattr(self, 'user_data_dir') 
         #print(storage_file)
+        
+        
         '''Recorder object To access Android Hardware'''
         self.MediaRecorder = autoclass('android.media.MediaRecorder')
         self.AudioSource = autoclass('android.media.MediaRecorder$AudioSource')
@@ -192,7 +194,8 @@ class AudioTool(BoxLayout):
         #input_file = 'testaudio.mp4'
         #output_file = 'output2.wav'
         #subprocess.run(['ffmpeg', '-i', input_file, '-acodec', 'pcm_s16le', '-ar', '44100', output_file])
-        command2wav = "ffmpeg -i testaudio.mp4 output2.wav"
+        #self.outPutFile = "wav/output2.wav"
+        command2wav = "ffmpeg -i testaudio.mp4 /wav/output2.wav"
         os.system(command2wav)
         time.sleep(20)
         print("finished creating wav file")
@@ -222,7 +225,7 @@ class AudioTool(BoxLayout):
         self.sound = MediaPlayer()
         #self.sound.setDataSource(yourDataSource) #you can provide any data source, if its on the devie then the file path, or its url if you are playing online
         #self.sound.setDataSource('testaudio.mp4') 
-        self.audio_path = "wav/output1.wav"
+        self.audio_path = "wav/output2.wav"
      
         self.sound.setDataSource(self.audio_path) 
         self.sound.prepare()
