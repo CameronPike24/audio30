@@ -207,6 +207,8 @@ class AudioTool(BoxLayout):
         #output_file = 'output2.wav'
         #subprocess.run(['ffmpeg', '-i', input_file, '-acodec', 'pcm_s16le', '-ar', '44100', output_file])
         self.outPutFile = self.storage_path + "/wav/output2.wav"
+        print("self.outPutFile")
+        print(self.outPutFile)
         command2wav = "ffmpeg -i testaudio.mp4 " + self.outPutFile
         os.system(command2wav)
         time.sleep(10)
@@ -225,7 +227,9 @@ class AudioTool(BoxLayout):
         self.sound = MediaPlayer()
         #self.sound.setDataSource(yourDataSource) #you can provide any data source, if its on the devie then the file path, or its url if you are playing online
         #self.sound.setDataSource('testaudio.mp4') 
-        self.audio_path = self.storage_path + "/wav/output2.wav"
+        #self.audio_path = self.storage_path + "/wav/output2.wav"
+        self.audio_path = self.storage_path + "/wav/output1.wav"
+        
         #self.audio_path = "wav/output2.wav"
      
         self.sound.setDataSource(self.audio_path) 
