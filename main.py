@@ -191,27 +191,27 @@ class AudioTool(BoxLayout):
         print(d)
         
         
+
+
+        
+        context = mActivity.getApplicationContext()
+        result =  context.getExternalFilesDir(None)   # don't forget the argument
+        #result =  context.getExternalCacheDir()
+        if result:
+            self.storage_path =  str(result.toString())       
+            print("storage path")
+            print(self.storage_path)
+        
+ 
         #input_file = 'testaudio.mp4'
         #output_file = 'output2.wav'
         #subprocess.run(['ffmpeg', '-i', input_file, '-acodec', 'pcm_s16le', '-ar', '44100', output_file])
-        self.outPutFile = "wav/output2.wav"
+        self.outPutFile = self.storage_path + "wav/output2.wav"
         command2wav = "ffmpeg -i testaudio.mp4 " + self.outPutFile
         os.system(command2wav)
         time.sleep(10)
         print("finished creating wav file")
         
-
-        '''
-        context = mActivity.getApplicationContext()
-        #result =  context.getExternalFilesDir(None)   # don't forget the argument
-        result =  context.getExternalCacheDir()
-        if result:
-            self.storage_path =  str(result.toString())       
-            print("storage path")
-            print(self.storage_path)
-        '''
- 
-
         
         
         self.play()
