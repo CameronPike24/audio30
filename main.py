@@ -216,7 +216,17 @@ class AudioTool(BoxLayout):
         print("self.outPutFile")
         print(self.outPutFile)
         command2wav = "ffmpeg -i " + self.inPutFile + " " + self.outPutFile
-        os.system(command2wav)
+        result_code = os.system(command2wav + ' > output.txt')
+        
+        if os.path.exists('output.txt'):
+            fp = open('output.txt', "r")
+            output = fp.read()
+            fp.close()
+            os.remove('output.txt')
+            print("command output")
+            print(output)
+        
+        
         time.sleep(10)
         print("files in pwd")
         print(os.listdir())
