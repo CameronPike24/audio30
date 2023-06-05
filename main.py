@@ -212,9 +212,10 @@ class AudioTool(BoxLayout):
         #subprocess.run(['ffmpeg', '-i', input_file, '-acodec', 'pcm_s16le', '-ar', '44100', output_file])
         #self.outPutFile = self.storage_path + "/wav/output2.wav"
         self.outPutFile  = "/data/data/org.example.c4k_tflite_audio1/files/app/wav/output2.wav"
+        self.inPutFile  = "/data/data/org.example.c4k_tflite_audio1/files/app/wav/testaudio.mp4"
         print("self.outPutFile")
         print(self.outPutFile)
-        command2wav = "ffmpeg -i testaudio.mp4 " + self.outPutFile
+        command2wav = "ffmpeg -i " + self.inPutFile + " " + self.outPutFile
         os.system(command2wav)
         time.sleep(10)
         print("files in pwd")
