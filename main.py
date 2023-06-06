@@ -222,7 +222,7 @@ class AudioTool(BoxLayout):
         print(self.outPutFile)
         #command2wav = "ffmpeg -i " + self.inPutFile + " " + self.outPutFile
         #ffmpeg -i <infile> -ac 2 -f wav <outfile>
-        command2wav = 'ffmpeg -i testaudio.mp4 -vn -acodec pcm_s16le -ar 44100 -ac 1 output2.wav'
+        command2wav = 'ffmpeg -i testaudio.mp4 -vn -acodec pcm_s16le -ar 44100 -ac 1 output2.wav 2> out.txt'
         result_code = os.system(command2wav + ' > output.txt')
         
 
@@ -232,7 +232,7 @@ class AudioTool(BoxLayout):
         print("files in pwd")
         print(os.listdir())
         print("finished creating wav file")
-        
+        '''
         if os.path.exists('output.txt'):
             fp = open('output.txt', "r")
             output = fp.read()
@@ -240,6 +240,15 @@ class AudioTool(BoxLayout):
             os.remove('output.txt')
             print("command output")
             print(output)        
+        '''    
+            
+        if os.path.exists('out.txt'):
+            fp = open('out.txt', "r")
+            output2 = fp.read()
+            fp.close()
+            os.remove('out.txt')
+            print("command output2")
+            print(output2)                 
        
         
         
