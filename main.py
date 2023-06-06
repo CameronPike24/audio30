@@ -211,8 +211,13 @@ class AudioTool(BoxLayout):
         #output_file = 'output2.wav'
         #subprocess.run(['ffmpeg', '-i', input_file, '-acodec', 'pcm_s16le', '-ar', '44100', output_file])
         #self.outPutFile = self.storage_path + "/wav/output2.wav"
-        self.outPutFile  = "/data/data/org.example.c4k_tflite_audio1/files/app/wav/output2.wav"
-        self.inPutFile  = "/data/data/org.example.c4k_tflite_audio1/files/app/wav/testaudio.mp4"
+        
+        
+        #self.outPutFile  = "/data/data/org.example.c4k_tflite_audio1/files/app/wav/output2.wav"
+        #self.inPutFile  = "/data/data/org.example.c4k_tflite_audio1/files/app/wav/testaudio.mp4"
+        
+        self.outPutFile  = "/data/data/org.example.c4k_tflite_audio1/files/app/output2.wav"
+        self.inPutFile  = "/data/data/org.example.c4k_tflite_audio1/files/app/testaudio.mp4"
         print("self.outPutFile")
         print(self.outPutFile)
         command2wav = "ffmpeg -i " + self.inPutFile + " " + self.outPutFile
@@ -259,7 +264,8 @@ class AudioTool(BoxLayout):
         
         #self.audio_path = dirCheck1 + "/wav/output1.wav"
         #self.audio_path = "/storage/emulated/0/org.example.c4k_tflite_audio1/wav/output1.wav"##Not found
-        self.audio_path = "/data/data/org.example.c4k_tflite_audio1/files/app/wav/output2.wav"
+        #self.audio_path = "/data/data/org.example.c4k_tflite_audio1/files/app/wav/output2.wav"
+        self.audio_path = "/data/data/org.example.c4k_tflite_audio1/files/app/output2.wav"
         #self.audio_path = "wav/output2.wav"
      
         self.sound.setDataSource(self.audio_path) 
