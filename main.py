@@ -218,13 +218,7 @@ class AudioTool(BoxLayout):
         command2wav = "ffmpeg -i " + self.inPutFile + " " + self.outPutFile
         result_code = os.system(command2wav + ' > output.txt')
         
-        if os.path.exists('output.txt'):
-            fp = open('output.txt', "r")
-            output = fp.read()
-            fp.close()
-            os.remove('output.txt')
-            print("command output")
-            print(output)
+
         
         
         time.sleep(10)
@@ -232,6 +226,13 @@ class AudioTool(BoxLayout):
         print(os.listdir())
         print("finished creating wav file")
         
+        if os.path.exists('output.txt'):
+            fp = open('output.txt', "r")
+            output = fp.read()
+            fp.close()
+            os.remove('output.txt')
+            print("command output")
+            print(output)        
        
         
         
