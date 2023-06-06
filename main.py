@@ -82,6 +82,7 @@ class MyRecorder:
         #self.user_dir = get_app.getattr(self, 'user_data_dir') 
         #print(storage_file)
         
+        FFMPEG = autoclass('com.sahib.pyff.ffpy')
         
         '''Recorder object To access Android Hardware'''
         self.MediaRecorder = autoclass('android.media.MediaRecorder')
@@ -222,8 +223,19 @@ class AudioTool(BoxLayout):
         print(self.outPutFile)
         #command2wav = "ffmpeg -i " + self.inPutFile + " " + self.outPutFile
         #ffmpeg -i <infile> -ac 2 -f wav <outfile>
-        command2wav = 'ffmpeg -i testaudio.mp4 -vn -acodec pcm_s16le -ar 44100 -ac 1 output2.wav 2> out.txt'
-        result_code = os.system(command2wav + ' > output.txt')
+        
+        
+        
+        #command2wav = 'ffmpeg -i testaudio.mp4 -vn -acodec pcm_s16le -ar 44100 -ac 1 output2.wav 2> out.txt'
+        
+        
+        
+        #THIS COVERTS VIDEO INTO an audio file (MP4 TO WAV)
+        d = FFMPEG.Run(str("-i testaudio.mp4 -ab 160k -ac 1 -ar 44100 -vn output2.wav"))
+        print(d)
+
+
+        #result_code = os.system(command2wav + ' > output.txt')
         
 
         
@@ -240,7 +252,7 @@ class AudioTool(BoxLayout):
             os.remove('output.txt')
             print("command output")
             print(output)        
-        '''    
+           
             
         if os.path.exists('out.txt'):
             fp = open('out.txt', "r")
@@ -250,7 +262,7 @@ class AudioTool(BoxLayout):
             print("command output2")
             print(output2)                 
        
-        
+        '''
         
         
         self.play()

@@ -39,7 +39,7 @@ version = 0.1
 # comma separated e.g. requirements = sqlite3,kivy
 #requirements = python3,kivy,camera4kivy,gestures4kivy,numpy,tflite-runtime,kivymd,pandas,autopoint,gettext
 #requirements = python3,kivy,camera4kivy,gestures4kivy,numpy,tflite-runtime,kivymd,requests,urllib3,chardet,idna,kivy_garden.graph,audiostream
-requirements = python3==3.9.12,kivy,camera4kivy,gestures4kivy,numpy,tflite-runtime,kivymd,requests,urllib3,chardet,idna,kivy_garden.graph,audiostream,hostpython3==3.9.12,openssl,ffmpeg-python,future,ffmpeg,ffpyplayer,ffpyplayer_codecs
+requirements = python3==3.9.12,kivy,camera4kivy,gestures4kivy,numpy,tflite-runtime,kivymd,requests,urllib3,chardet,idna,kivy_garden.graph,audiostream,hostpython3==3.9.12,openssl,ffmpeg-python,future,ffmpeg,ffpyplayer,ffpyplayer_codecs,pyjnius
 
 # (str) Custom source folders for requirements
 # Sets custom source for any requirements with recipes
@@ -176,13 +176,17 @@ android.api = 32
 # down the build process. Allows wildcards matching, for example:
 # OUYA-ODK/libs/*.jar
 #android.add_jars = foo.jar,bar.jar,path/to/more/*.jar
+#Added for ffmpeg
+android.add_jars = smart-exception-common-0.2.1.jar, smart-exception-java-0.2.1.jar
 
 # (list) List of Java files to add to the android project (can be java or a
 # directory containing the files)
 #android.add_src =
 
 # (list) Android AAR archives to add
-#android.add_aars =
+#Added for ffmpeg
+#android.add_aars = ffpy-debug.aar
+android.add_aars = ffmpeg-kit-release.aar
 
 # (list) Put these files or directories in the apk assets directory.
 # Either form may be used, and assets need not be in 'source.include_exts'.
@@ -191,7 +195,8 @@ android.api = 32
 #android.add_assets =
 
 # (list) Gradle dependencies to add
-#android.gradle_dependencies =
+#aded for ffmpeg
+#android.gradle_dependencies = "com.arthenica:ffmpeg-kit-full:5.1"
 
 # (bool) Enable AndroidX support. Enable when 'android.gradle_dependencies'
 # contains an 'androidx' package, or any package from Kotlin source.
